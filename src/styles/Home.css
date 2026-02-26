@@ -8,6 +8,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'HKGroteskWide-Bold';
+    src: url('/fonts/HKGroteskWide-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -32,6 +40,10 @@
 .left_panel h1 {
     font-family: 'LunaObscura', sans-serif;
     color: var(--third-accent);
+}
+
+.text_1 {
+    font-family: 'HKGroteskWide-Bold';
 }
 
 /*Panel Derecho*/

@@ -26,5 +26,71 @@ import rings from "../assets/vectors/rings.svg";
       </div>
     </header>-->
     <slot />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const rings = document.querySelector(".rings");
+        const soundIndicator = document.getElementById("soundIndicator");
+        let audioEnabled = false;
+
+        // Crear el objeto de audio una sola vez
+        const hoverSound = new Audio("/sounds/SFX_1.mp3");
+        hoverSound.volume = 0.3;
+
+        // Función para habilitar el audio
+        const enableAudio = () => {
+          audioEnabled = true;
+          if (soundIndicator) {
+            soundIndicator.innerHTML = "<span>🔊</span> SONIDO ACTIVADO";
+            soundIndicator.style.opacity = "0.5";
+            setTimeout(() => {
+              soundIndicator.style.display = "none";
+            }, 2000);
+          }
+
+          // Intentar reproducir un sonido de prueba (silenciado)
+          hoverSound.volume = 0;
+          hoverSound
+            .play()
+            .then(() => {
+              hoverSound.pause();
+              hoverSound.currentTime = 0;
+              hoverSound.volume = 0.3;
+            })
+            .catch((e) => console.log("Audio listo"));
+
+          // Remover listeners después de activar
+          document.removeEventListener("click", enableAudio);
+          document.removeEventListener("touchstart", enableAudio);
+          document.removeEventListener("keydown", enableAudio);
+        };
+
+        // Esperar interacción del usuario
+        document.addEventListener("click", enableAudio);
+        document.addEventListener("touchstart", enableAudio);
+        document.addEventListener("keydown", enableAudio);
+
+        // Manejar el hover
+        if (rings) {
+          rings.addEventListener("mouseenter", () => {
+            if (audioEnabled) {
+              hoverSound.currentTime = 0;
+              hoverSound.play().catch((error) => {
+                console.log("Error al reproducir:", error);
+              });
+            } else {
+              // Feedback visual si el audio no está activado
+              if (soundIndicator) {
+                soundIndicator.style.backgroundColor = "#ff4444";
+                soundIndicator.style.opacity = "1";
+                setTimeout(() => {
+                  soundIndicator.style.backgroundColor = "#333";
+                }, 300);
+              }
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

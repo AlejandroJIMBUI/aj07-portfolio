@@ -12,12 +12,9 @@ section {
     height: 100vh;
     display: flex;
     justify-content: center;
-    /* horizontal */
     align-items: center;
-    /* vertical */
 }
 
-/* Contenedor */
 .text_container {
     text-align: center;
 }
@@ -25,4 +22,142 @@ section {
 .dev_text {
     font-family: 'LunaObscura', sans-serif;
     color: var(--secondary-accent);
+}
+
+.progress_container {
+    width: 600px;
+    max-width: 90vw;
+    margin: 2rem auto 0;
+    position: relative;
+}
+
+.progress_bar {
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(90deg,
+            rgba(19, 19, 19, 0.9) 0%,
+            rgba(26, 26, 26, 0.95) 50%,
+            rgba(19, 19, 19, 0.9) 100%);
+    border: 2px solid var(--border-1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress_fill {
+    width: 10%;
+    height: 100%;
+    background-color: var(--primary-accent);
+    position: relative;
+    animation: scanline 2s linear infinite;
+}
+
+
+.progress_indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding: 0 5px;
+}
+
+.indicator {
+    width: 2px;
+    height: 10px;
+    background: var(--border-1);
+    position: relative;
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    width: 4px;
+    height: 2px;
+    background: var(--primary-accent);
+    opacity: 0.5;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.percentage {
+    font-family: 'LunaObscura', sans-serif;
+    font-size: 1.2rem;
+    color: var(--secondary-accent);
+    text-align: right;
+    margin-top: 5px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.percentage::before {
+    content: '>';
+    margin-right: 8px;
+    color: var(--primary-accent);
+    animation: blink 1s step-end infinite;
+}
+
+.percentage::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-accent));
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.progress_container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--primary-accent) 20%,
+            var(--secondary-accent) 50%,
+            var(--primary-accent) 80%,
+            transparent 100%);
+    animation: slide 3s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: scaleX(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scaleX(0.5);
+    }
 }
