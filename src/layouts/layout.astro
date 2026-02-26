@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import { Image } from "astro:assets";
+import rings from "../assets/vectors/rings.svg";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <!--<header class="header">
+      <div class="vector-1">
+        <Image src={rings} alt="rings" class="rings" />
+      </div>
+    </header>-->
+    <slot />
+  </body>
+</html>

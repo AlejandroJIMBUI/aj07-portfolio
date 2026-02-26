@@ -1,0 +1,12 @@
+:root {
+    --background-black: #000000;
+    --background: #1a1a1a;
+    --background-2: #131313;
+
+    --border-1: #3d4234;
+
+    --primary-accent: #8bad54;
+    --secondary-accent: #efffd4;
+    --third-accent: #b92c2c;
+    --fourth-accent: #fbebe9;
+}

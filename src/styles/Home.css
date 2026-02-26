@@ -1,0 +1,50 @@
+@import url(colors.css);
+
+@font-face {
+    font-family: 'LunaObscura';
+    src: url('/fonts/HS_LunaObscura.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    max-width: 1400px;
+    max-height: 600px;
+    margin: 2rem auto;
+    gap: 1rem;
+}
+
+/*Configuración de paneles*/
+
+/*Panel Izquierdo*/
+.left_panel {
+    flex: 3;
+    border: 1px solid var(--border-1);
+    border-radius: 3px;
+    background-color: var(--background);
+    color: var(--secondary-accent);
+    padding-left: 2rem;
+}
+
+.left_panel h1 {
+    font-family: 'LunaObscura', sans-serif;
+    color: var(--third-accent);
+}
+
+/*Panel Derecho*/
+.right_panel {
+    flex: 1;
+    border: 1px solid var(--border-1);
+    border-radius: 3px;
+    background-color: var(--background);
+    color: var(--secondary-accent);
+    padding-left: 2rem;
+}
+
+.right_panel h1 {
+    font-family: 'LunaObscura', sans-serif;
+    color: var(--fourth-accent);
+}

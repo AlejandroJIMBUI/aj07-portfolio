@@ -1,0 +1,28 @@
+@import url(colors.css);
+
+@font-face {
+    font-family: 'LunaObscura';
+    src: url('/fonts/HS_LunaObscura.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* horizontal */
+    align-items: center;
+    /* vertical */
+}
+
+/* Contenedor */
+.text_container {
+    text-align: center;
+}
+
+.dev_text {
+    font-family: 'LunaObscura', sans-serif;
+    color: var(--secondary-accent);
+}
