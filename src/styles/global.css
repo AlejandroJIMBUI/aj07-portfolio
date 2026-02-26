@@ -10,7 +10,7 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    background-color: #131313;
+    background-color: var(--background-2);
 }
 
 /*Header*/

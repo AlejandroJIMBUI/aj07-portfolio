@@ -2,8 +2,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  // coment lines 6 & 7 for development
-  site: "https://AlejandroJIMBUI.github.io",
-  base: "/aj07-portfolio",
+  site: "https://alejandroj07.com",
+  base: "/",
   output: "static",
 });
