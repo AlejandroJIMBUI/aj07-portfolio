@@ -6,8 +6,8 @@ export interface Props {
 
 const { title } = Astro.props;
 
-import { Image } from "astro:assets";
-import rings from "../assets/vectors/rings.svg";
+//import { Image } from "astro:assets";
+//import image from "../assets/vectors/image.svg";
 ---
 
 <!doctype html>
@@ -18,78 +18,69 @@ import rings from "../assets/vectors/rings.svg";
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <!-- Precargar el audio -->
+    <link rel="preload" href="/sounds/SFX_1.mp3" as="audio" type="audio/mpeg" />
   </head>
   <body>
-    <!--<header class="header">
-      <div class="vector-1">
-        <Image src={rings} alt="rings" class="rings" />
-      </div>
-    </header>-->
+    <!--
+    <header class="header">
+      <nav>
+        <a href="/projects" class="nav_btn">Projects</a>
+        <a href="/" class="nav_btn">Home</a>
+      </nav>
+    </header>
+    -->
+
     <slot />
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const rings = document.querySelector(".rings");
-        const soundIndicator = document.getElementById("soundIndicator");
-        let audioEnabled = false;
-
-        // Crear el objeto de audio una sola vez
         const hoverSound = new Audio("/sounds/SFX_1.mp3");
         hoverSound.volume = 0.3;
+        hoverSound.preload = "auto";
+        hoverSound.load();
 
-        // Función para habilitar el audio
-        const enableAudio = () => {
-          audioEnabled = true;
-          if (soundIndicator) {
-            soundIndicator.innerHTML = "<span>🔊</span> SONIDO ACTIVADO";
-            soundIndicator.style.opacity = "0.5";
-            setTimeout(() => {
-              soundIndicator.style.display = "none";
-            }, 2000);
-          }
+        let audioUnlocked = false;
 
-          // Intentar reproducir un sonido de prueba (silenciado)
-          hoverSound.volume = 0;
+        const unlockAudio = () => {
+          if (audioUnlocked) return;
+          audioUnlocked = true;
+          hoverSound.muted = true;
           hoverSound
             .play()
             .then(() => {
               hoverSound.pause();
               hoverSound.currentTime = 0;
-              hoverSound.volume = 0.3;
+              hoverSound.muted = false;
             })
-            .catch((e) => console.log("Audio listo"));
-
-          // Remover listeners después de activar
-          document.removeEventListener("click", enableAudio);
-          document.removeEventListener("touchstart", enableAudio);
-          document.removeEventListener("keydown", enableAudio);
+            .catch(() => {});
+          document.removeEventListener("click", unlockAudio);
+          document.removeEventListener("touchstart", unlockAudio);
+          document.removeEventListener("keydown", unlockAudio);
         };
 
-        // Esperar interacción del usuario
-        document.addEventListener("click", enableAudio);
-        document.addEventListener("touchstart", enableAudio);
-        document.addEventListener("keydown", enableAudio);
+        document.addEventListener("click", unlockAudio);
+        document.addEventListener("touchstart", unlockAudio);
+        document.addEventListener("keydown", unlockAudio);
 
-        // Manejar el hover
-        if (rings) {
-          rings.addEventListener("mouseenter", () => {
-            if (audioEnabled) {
+        // Sonido en todos los botones de navegación
+        document.querySelectorAll(".nav_btn").forEach((btn) => {
+          btn.addEventListener("mouseenter", () => {
+            if (audioUnlocked) {
               hoverSound.currentTime = 0;
               hoverSound.play().catch((error) => {
                 console.log("Error al reproducir:", error);
               });
-            } else {
-              // Feedback visual si el audio no está activado
-              if (soundIndicator) {
-                soundIndicator.style.backgroundColor = "#ff4444";
-                soundIndicator.style.opacity = "1";
-                setTimeout(() => {
-                  soundIndicator.style.backgroundColor = "#333";
-                }, 300);
-              }
             }
           });
-        }
+        });
+
+        // Marcar link activo
+        document.querySelectorAll(".header nav a").forEach((link) => {
+          if (link.getAttribute("href") === window.location.pathname) {
+            link.classList.add("active");
+          }
+        });
       });
     </script>
   </body>

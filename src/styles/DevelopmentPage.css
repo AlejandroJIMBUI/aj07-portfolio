@@ -8,6 +8,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'JetBrainsMono';
+    src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 section {
     height: 100vh;
     display: flex;
@@ -22,16 +30,18 @@ section {
 .dev_text {
     font-family: 'LunaObscura', sans-serif;
     color: var(--secondary-accent);
+    animation: fadeInUp 0.5s ease;
 }
 
 .percentage {
-    font-family: 'LunaObscura', sans-serif;
+    font-family: 'JetBrainsMono', sans-serif;
     font-size: 1.2rem;
     color: var(--secondary-accent);
     text-align: center;
     margin-top: 5px;
     letter-spacing: 2px;
     position: relative;
+    animation: fadeInUp 0.7s ease;
 }
 
 .percentage::before {
@@ -50,6 +60,7 @@ section {
     height: 1px;
 }
 
+/* Animaciones */
 @keyframes blink {
 
     0%,
@@ -59,5 +70,17 @@ section {
 
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
