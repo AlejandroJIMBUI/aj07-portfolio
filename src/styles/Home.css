@@ -9,14 +9,15 @@
 }
 
 @font-face {
-    font-family: 'HKGroteskWide-Bold';
-    src: url('/fonts/HKGroteskWide-Bold.otf') format('opentype');
+    font-family: 'JetBrainsMono';
+    src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 .main {
+    font-family: 'JetBrainsMono', sans-serif;
     display: flex;
     justify-content: center;
     max-width: 1400px;
@@ -29,21 +30,24 @@
 
 /*Panel Izquierdo*/
 .left_panel {
-    flex: 3;
+    flex: 2;
     border: 1px solid var(--border-1);
     border-radius: 3px;
     background-color: var(--background);
     color: var(--secondary-accent);
     padding-left: 2rem;
+
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+}
+
+.left_panel:hover {
+    border: 1px solid var(--secondary-accent);
 }
 
 .left_panel h1 {
     font-family: 'LunaObscura', sans-serif;
-    color: var(--third-accent);
-}
-
-.text_1 {
-    font-family: 'HKGroteskWide-Bold';
+    color: var(--primary-accent);
 }
 
 /*Panel Derecho*/
@@ -54,9 +58,34 @@
     background-color: var(--background);
     color: var(--secondary-accent);
     padding-left: 2rem;
+
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+}
+
+.right_panel:hover {
+    border: 1px solid var(--secondary-accent);
+
 }
 
 .right_panel h1 {
     font-family: 'LunaObscura', sans-serif;
-    color: var(--fourth-accent);
+    color: var(--primary-accent);
+}
+
+.right_panel i {
+    font-size: 50px;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
