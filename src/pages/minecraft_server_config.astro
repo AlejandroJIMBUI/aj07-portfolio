@@ -1,0 +1,109 @@
+---
+import "../styles/minecraft_server_config.css";
+import { Image } from "astro:assets";
+
+import screenshot_1 from "../assets/images/screenshot_1.png";
+import screenshot_2 from "../assets/images/screenshot_2.png";
+import screenshot_3 from "../assets/images/screenshot_3.png";
+import screenshot_4 from "../assets/images/screenshot_4.png";
+import screenshot_5 from "../assets/images/screenshot_5.png";
+import screenshot_6 from "../assets/images/screenshot_6.png";
+import screenshot_7 from "../assets/images/screenshot_7.png";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/server-icon.png" type="image/png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>MC Server Config</title>
+  </head>
+  <body>
+    <div class="screen">
+      <div class="section_1">
+        <h1>MC Server v1 config</h1>
+
+        <h2>Configuración</h2>
+        <div class="image_box">
+          <Image src={screenshot_1} alt="screenshot_1_config" />
+          <Image src={screenshot_2} alt="screenshot_2_config" />
+          <p>
+            Crear nueva instancia desde SKlauncher <br />
+            Configuración: <br /><br />
+            Nombre: Server <br />
+            Versión: 1.21.1 <br />
+            ModLoader: Fabric 0.19.2 <br /><br />
+            Marcar la opción: usar una carpeta separada para la instancia <br
+            /><br />
+            Memoria Maxima: Min 4gb
+          </p>
+        </div>
+      </div>
+      <div class="section_2">
+        <p>
+          Asegurate de tener esta opción activada en los ajustes del lanzador
+        </p>
+        <Image src={screenshot_4} alt="screenshot_4_config" />
+      </div>
+      <div class="section_3">
+        <a
+          href="https://www.dropbox.com/scl/fi/27utxx8bc6ahy4ypqjmqr/server.zip?rlkey=6jaffa08afcf5vtkuhyu2xwop&st=jt4ekx1p&dl=0"
+          >Descargar Modpack</a
+        >
+        <p>
+          Ingresa al directorio de instalación
+          %APPDATA%/.minecraft/instances/server/ en Windows
+        </p>
+        <div class="image_box_2">
+          <Image src={screenshot_3} alt="screenshot_3_config" />
+          <p>
+            Mueve el archivo .zip que <br />
+            descargaste y descomprimelo
+          </p>
+        </div>
+        <p>
+          Una vez descompreso el archivo lo puedes eliminar. <br />
+          Debe haberte quedado la siguiente estructura de archivos:
+        </p>
+        <Image src={screenshot_5} alt="screenshot_5_config" />
+      </div>
+      <div class="section_4">
+        <p>
+          Ejecuta el juego y en el menu de multijugador añade <br />
+          lo siguiente en los campos:
+        </p>
+        <div class="image_box_3">
+          <Image src={screenshot_6} alt="screenshot_6_config" />
+          <p>
+            En el campo Server Name/Nombre del servidor le puedes dar el que
+            quieras. <br />
+            Server Address (ip): weeks-printable.gl.joinmc.link <br /><br />
+            Al llenar los campos dale en el boton Done/Aceptar
+          </p>
+        </div>
+        <p>
+          Ahora deberias tener el juego listo y configurado para entrar en el
+          server
+        </p>
+        <Image src={screenshot_7} alt="screenshot_7_config" />
+        <h1>Notas</h1>
+        <p>
+          El juego viene con los shader activador por defecto, si tienes
+          problemas<br />
+          de rendimiento desactivalos en Opciones > Graficos > Shader Packs.<br
+          /><br />
+          Al iniciar deberas configurar el chat de voz con la tecla V, si no funciona<br
+          />
+          reasigna los atajos de teclado en Opciones > Controles > Asignación de teclas.
+          <br /><br />
+          La maxima distancia de renderizado que permite el server es de 6 Chunks
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>AlejandroJ07 2026</p>
+    </footer>
+  </body>
+</html>
