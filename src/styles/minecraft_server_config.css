@@ -1,0 +1,100 @@
+@import url(./colors.css);
+
+@font-face {
+    font-family: 'yoster';
+    src: url('/fonts/yoster.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'yoster', sans-serif;
+    background-color: var(--background);
+}
+
+h1 {
+    color: var(--link-color);
+}
+
+h2 {
+    color: var(--link-color);
+}
+
+a {
+    color: var(--link);
+    font-size: 20px;
+}
+
+.screen {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.section_1 {
+    padding-bottom: 100px;
+}
+
+.image_box {
+    display: flex;
+}
+
+.image_box p {
+    padding-left: 20px;
+    font-size: 20px;
+    color: var(--text);
+}
+
+.section_2 {
+    padding-bottom: 100px;
+}
+
+.section_2 p {
+    font-size: 20px;
+    color: var(--text);
+}
+
+.section_3 p {
+    font-size: 20px;
+    color: var(--text);
+}
+
+.image_box_2 {
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.image_box_2 p {
+    padding-left: 20px;
+}
+
+.section_4 {
+    padding-top: 50px;
+}
+
+.section_4 p {
+    font-size: 20px;
+    color: var(--text);
+}
+
+.image_box_3 {
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.image_box_3 p {
+    padding-left: 20px;
+}
+
+.section_4 h1 {
+    padding-top: 50px;
+}
+
+footer {
+    padding-top: 100px;
+}
+
+footer p {
+    color: var(--link-color);
+    text-align: center;
+}

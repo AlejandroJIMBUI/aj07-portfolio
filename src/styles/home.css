@@ -8,9 +8,17 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'yoster';
+    src: url('/fonts/yoster.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     font-family: 'Rubik', sans-serif;
-    background-color: var(--background-2);
+    background-color: var(--background);
 }
 
 .screen {
@@ -24,9 +32,23 @@ body {
 
 .nav_pannel {
     width: 100%;
-    max-width: 500px;   
+    max-width: 500px;
     height: 100%;
     max-height: 300px;
 
     background-color: aliceblue;
+}
+
+.nav_pannel h1 {
+    text-align: center;
+}
+
+footer {
+    padding-top: 100px;
+}
+
+footer p {
+    color: var(--link-color);
+    text-align: center;
+    font-family: 'yoster', sans-serif;
 }

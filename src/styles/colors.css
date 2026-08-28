@@ -1,15 +1,14 @@
 :root {
-    --background-black: #000000;
-    --background: #1a1a1a;
-    --background-2: #131313;
+    --background: #232435;
 
-    --border-1: #3f3f3f;
+    --link-color: #8f97b9;
+    --link-color-hover: #8b8dff;
+    --link: #6634c4;
+
+    --text: #c9c9c9;
 
     --primary-accent: #aaaaaa;
     --secondary-accent: #ffffff;
 
     --text-subtittle: #dddddd;
-
-    /*scissors projects colors*/
-    --s-back-color:
 }
